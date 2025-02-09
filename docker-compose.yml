@@ -3,14 +3,14 @@ services:
   backend:
     build: ./backend
     ports:
-      - "5000:5000"  # Expose backend on port 5000
+      - "30081:30081"  # Expose backend on port 30081
     depends_on:
       - db
 
   frontend:
     build: ./frontend
     ports:
-      - "80:80"  # Expose frontend on port 80
+      - "30080:30080"  # Expose frontend on port 30080
 
   db:
     image: postgres:13
