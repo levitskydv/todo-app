@@ -1,10 +1,5 @@
 version: '3.8'
-services:
-  frontend:
-    build: ./frontend
-    ports:
-      - "30080:30080"  # Expose frontend on port 30080
-
+services:  
   db:
     image: postgres:13
     environment:
@@ -20,6 +15,13 @@ services:
       - "30081:30081"  # Expose backend on port 30081
     depends_on:
       - db
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "30080:30080"  # Expose frontend on port 30080
+    depends_on:
+      - backend
 
 volumes:
   postgres_data:
