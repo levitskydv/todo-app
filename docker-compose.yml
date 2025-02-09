@@ -1,12 +1,5 @@
 version: '3.8'
 services:
-  backend:
-    build: ./backend
-    ports:
-      - "30081:30081"  # Expose backend on port 30081
-    depends_on:
-      - db
-
   frontend:
     build: ./frontend
     ports:
@@ -20,6 +13,13 @@ services:
       POSTGRES_PASSWORD: todo_password
     volumes:
       - postgres_data:/var/lib/postgresql/data
+
+  backend:
+    build: ./backend
+    ports:
+      - "30081:30081"  # Expose backend on port 30081
+    depends_on:
+      - db
 
 volumes:
   postgres_data:
